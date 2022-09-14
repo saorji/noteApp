@@ -52,7 +52,7 @@ public class NoteServiceImpl implements NoteService {
     public void updateNoteById(NoteDto noteDto) {
         Optional<Note> noteOptional = noteRepository.findById(noteDto.getId());
         noteOptional.ifPresent(note -> {
-            note.setBody(note.getBody());
+            note.setBody(noteDto.getBody());
             noteRepository.saveAndFlush(note);
         });
     }
